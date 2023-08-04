@@ -1,0 +1,122 @@
+Aplikasi Penjualan
+----------------------
+Tabel yang dibutuhkan..
+
+1. tbl_user
+	Field
+	-----------------------------------
+	id		INT(11) NOT NULL AI PK
+	fullname	VARCHAR(50) NOT NULL
+	email		VARCHAR(50) NOT NULL
+	username	VARCHAR(20) NOT NULL
+	password	VARCHAR(100) NOT NULL
+	status		INT(1) NOT NULL
+	level		VARCHAR(20)	NOT NULL
+	tgl_input	DATETIME	NOT NULL
+	tgl_edit	DATETIME	NOT NULL
+
+2.	tbl_pelanggan
+	id		INT(11) NOT NULL AI PK
+	id_user		INT(11) NOT NULL 
+	fullname	VARCHAR(50) NOT NULL
+	tmp_lahir	VARCHAR(50) NOT NULL
+	tgl_lahir	DATE 	NOT NULL
+	alamat		TEXT	NOT NULL
+	no_hp		VARCHAR(20) NOT NULL
+	no_wa		VARCHAR(20) NOT NULL
+	tgl_input	DATETIME	NOT NULL
+	tgl_edit	DATETIME	NOT NULL
+
+3.	tbl_pembelian
+	id		INT(11) NOT NULL AI PK
+	invoice		VARCHAR(50) NOT NULL
+	tgl_pembelian	DATETIME 	NOT NULL
+	pembeli 	INT(11)	NOT NULL
+	produk		INT(11) NOT NULL
+	banyak		INT(11)	NOT NULL
+	total_harga	DOUBLE	NOT NULL
+	diskon		DOUBLE	NOT NULL
+	kurir	INT(11) NOT NULL
+	ongkos_kirim	DOUBLE NOT NULL
+	total_bayar	DOUBLE	NOT NULL
+	status_pembelian	INT(1) NOT NULL
+	catatan_pembelian	text notnull
+	tgl_input	DATETIME	NOT NULL
+	tgl_edit	DATETIME	NOT NULL		
+
+4.	tbl_pembayaran
+	id			INT(11) NOT NULL AI PK
+	tgl_pembayaran	DATETIME 	NOT NULL
+	pembelian 	INT(11)	NOT NULL
+	total_bayar		DOUBLE NOT NULL
+	status_pembayaran	INT(1) NOT NULL
+	jns_pembayaran		VARCHAR(50) NOT NULL
+	rek_pengirim	VARCHAR(50) NOT NULL
+	bank_pengirim	VARCHAR(50) NOT NULL
+	rek_tujuan	VARCHAR(50) NOT NULL
+	bank_tujuan VARCHAR(50) NOT NULL
+	bukti_pembayaran	VARCHAR(100) NOT NULL
+	tgl_input	DATETIME	NOT NULL
+	tgl_edit	DATETIME	NOT NULL
+
+5.	tbl_ulasan
+	id		INT(11) NOT NULL AI PK
+	pelanggan 	INT(11) NOT NULL
+	produk 		INT(11)	NOT NULL
+	ulasan 		TEXT NOT NULL
+	tgl_input	DATETIME	NOT NULL
+	tgl_edit	DATETIME	NOT NULL				
+
+6.	tbl_pengaduan
+	id		INT(11) NOT NULL AI PK
+	pelanggan 	INT(11) NOT NULL
+	pembelian 	INT(11)	NOT NULL
+	pengaduan 	TEXT NOT NULL
+	tanggapan	TEXT NOT NULL
+	tgl_input	DATETIME	NOT NULL
+	tgl_edit	DATETIME	NOT NULL
+
+7.	tbl_produk
+	id		INT(11) NOT NULL AI PK
+	kode_produk 	VARCHAR(10) NOT NULL
+	nama_produk 	VARCHAR(50)	NOT NULL
+	jns_produk	INT(11) NOT NULL
+	deskripsi	TEXT NOT NULL
+	harga 		DOUBLE NOT NULL
+	gambar 		VARCHAR(50) NOT NULL
+	tgl_input	DATETIME	NOT NULL
+	tgl_edit	DATETIME	NOT NULL
+
+8.	tbl_stok
+	id		INT(11) NOT NULL AI PK
+	produk 		INT(10) NOT NULL
+	stok 		INT(11)	NOT NULL
+	tgl_input	DATETIME	NOT NULL
+	tgl_edit	DATETIME	NOT NULL
+
+9.	tbl_pengiriman
+	id		INT(11) NOT NULL AI PK
+	tgl_kirim 	DATETIME NOT NULL
+	kurir 		VARCHAR(50)	NOT NULL
+	no_resi 	VARCHAR(50) NOT NULL
+	alamat_tujuan 	TEXT NOT NULL
+	alamat_pengirim	TEXT NOT NULL
+	status_pengiriman 	INT(1) NOT NULL
+	pembeli INT(11) NOT NULL
+	tgl_input	DATETIME	NOT NULL
+	tgl_edit	DATETIME	NOT NULL	
+
+10.	tbl_whislist
+	id			INT(11) NOT NULL AI PK
+	tgl_whislist 	DATETIME NOT NULL
+	produk 	int(11)	NOT NULL
+	pelanggan int(11) NOT NULL
+	tgl_input	DATETIME	NOT NULL
+	tgl_edit	DATETIME	NOT NULL	
+
+11.	tbl_jenis_produk
+	id			INT(11) NOT NULL AI PK
+	jns_produk 	varchar(50) NOT NULL
+	deskripsi 	TEXT	NOT NULL
+	tgl_input	DATETIME	NOT NULL
+	tgl_edit	DATETIME	NOT NULL		
